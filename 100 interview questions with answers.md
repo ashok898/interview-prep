@@ -198,3 +198,105 @@ This ensures repeatability and faster resolution in future.
 
 ---
 
+Perfect, ASHOK 👌  
+Here’s the **next batch of 10 Q&A (21–30)**, focusing on **Identity & Access Management, Windows/Linux administration, and hybrid troubleshooting scenarios**.  
+
+---
+
+## 🔹 Batch 3: IAM, Windows/Linux, Hybrid Troubleshooting
+
+**Q21. How do you configure Multi-Factor Authentication (MFA) in Azure AD?**  
+**A21.**  
+- Go to **Azure AD → Security → MFA**.  
+- Enable MFA per user or via Conditional Access policy.  
+- Configure methods (Authenticator app, SMS, phone call).  
+- Test login to ensure MFA prompt appears.  
+- Best practice: enforce MFA for all privileged roles.
+
+---
+
+**Q22. What’s the difference between Conditional Access and RBAC in Azure?**  
+**A22.**  
+- **RBAC:** Controls *what* resources a user can access (permissions).  
+- **Conditional Access:** Controls *how/when* a user can access (conditions like MFA, device compliance, location).  
+Together, they enforce least privilege and secure access.
+
+---
+
+**Q23. How do you troubleshoot Active Directory replication issues?**  
+**A23.**  
+- Run `repadmin /replsummary` to check replication status.  
+- Validate DNS resolution between domain controllers.  
+- Check AD logs in Event Viewer.  
+- Common fix: restart Netlogon service or resolve network connectivity issues.
+
+---
+
+**Q24. How do you manage Privileged Identity Management (PIM) in Azure?**  
+**A24.**  
+- Enable PIM in Azure AD.  
+- Assign eligible roles (e.g., Global Admin).  
+- Configure approval workflow and MFA requirement.  
+- Users activate roles only when needed, reducing permanent privilege exposure.  
+- Audit logs track all activations.
+
+---
+
+**Q25. How do you troubleshoot Linux VM connectivity issues in Azure?**  
+**A25.**  
+- Check NSG/firewall rules for port 22.  
+- Validate VM status with `az vm get-instance-view`.  
+- Use `ping` and `ssh -vvv` for diagnostics.  
+- Review `/var/log/auth.log` for login errors.  
+- Common fix: reset SSH configuration or redeploy VM NIC.
+
+---
+
+**Q26. How do you reset a forgotten Windows Server Administrator password?**  
+**A26.**  
+- Use **Azure VM password reset** from portal.  
+- Or boot into recovery mode → enable Administrator account.  
+- For on-prem AD: reset password via ADUC console.  
+- Always document password resets for audit compliance.
+
+---
+
+**Q27. How do you troubleshoot DNS resolution issues in hybrid environments?**  
+**A27.**  
+- Validate DNS server IPs in VM NIC settings.  
+- Use `nslookup` or `dig` to test resolution.  
+- Check conditional forwarders in AD DNS.  
+- Common fix: update DNS zone records or sync hybrid DNS with Azure Private DNS Zones.
+
+---
+
+**Q28. How do you configure role assignments in Azure AD?**  
+**A28.**  
+- Go to **Azure AD → Roles and administrators**.  
+- Select role → Assign to user/group.  
+- Configure scope (tenant, subscription, resource group).  
+- Validate with `az role assignment list`.  
+- Best practice: assign roles to groups, not individuals.
+
+---
+
+**Q29. How do you troubleshoot Group Policy (GPO) issues in Windows Server?**  
+**A29.**  
+- Run `gpresult /r` to check applied policies.  
+- Validate GPO links in ADUC.  
+- Check SYSVOL replication.  
+- Common fix: force update with `gpupdate /force`.  
+- Document changes to avoid policy conflicts.
+
+---
+
+**Q30. How do you integrate Linux servers with Active Directory?**  
+**A30.**  
+- Install `realmd` and `sssd` packages.  
+- Run `realm join domain.local -U admin`.  
+- Configure `/etc/sssd/sssd.conf` for AD authentication.  
+- Validate with `id username@domain.local`.  
+- This enables centralized identity management across hybrid environments.
+
+---
+
